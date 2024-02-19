@@ -103,29 +103,8 @@ void CanMCP::rooms_register(int number_rooms){
 void CanMCP::set_CAN_msg(struct canStructure data, int room_number, String objeto, String msg){
   data.arr[3] = 0x01;
   
-  if(objeto == "CHECK-IN"){
-    data.arr[1] = 0x01;
-  }
-  else if(objeto == "STAND-BY"){
-    data.arr[1] = 0x02;
-  }
-  else if(objeto == "REINGRESO"){
+  if(objeto == "PUERTA"){
     data.arr[1] = 0x03;
-  }
-  else if(objeto == "PUERTA"){
-    data.arr[1] = 0x04;
-  }
-  else if(objeto == "LUZ-TECHO"){
-    data.arr[1] = 0x05;
-  }
-  else if(objeto == "LUZ-CABECERA"){
-    data.arr[1] = 0x06;
-  }
-  else if(objeto == "LUZ-MESA"){
-    data.arr[1] = 0x07;
-  }
-  else if(objeto == "LUZ-NCABINA"){
-    data.arr[1] = 0x08;
   }
   if(msg == "true"){
     data.arr[2] = 0x01;
